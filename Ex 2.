@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        #taskList {
+            list-style-type: none;
+            padding: 0;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add</button>
+<ul id="taskList"></ul>
+
+<script>
+    function addTask() {
+        var taskInput = document.getElementById("taskInput");
+        var taskText = taskInput.value.trim();
+        
+        if (taskText !== "") {
+            var taskList = document.getElementById("taskList");
+            var newTask = document.createElement('li');
+            newTask.textContent = taskText;
+            taskList.appendChild(newTask);
+            taskInput.value = ""; // Limpa o campo de entrada após adicionar a tarefa
+        } else {
+            alert("Por favor, insira uma tarefa.");
+        }
+    }
+</script>
+
+</body>
+</html>
